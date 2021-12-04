@@ -1,7 +1,7 @@
 package segovia.adventofcode;
 
-import javax.xml.bind.DatatypeConverter;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -97,7 +97,7 @@ public class Utils {
 
     public static String doMD5(String input) throws Exception {
         byte[] bytesOfMessage = input.getBytes("UTF-8");
-        return DatatypeConverter.printHexBinary(MD5.digest(bytesOfMessage)).toLowerCase();
+        return String.format("%032x", new BigInteger(1, MD5.digest(bytesOfMessage)));
     }
 
     public static boolean isBlank(final CharSequence cs) {
